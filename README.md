@@ -1,4 +1,4 @@
-# NEW COMSAI
+# COMSAI SYSTEM
 
 A PHP and MySQL-powered student information assistant for the College of Computer Studies. It gives students a public chat experience for verified CCS information and gives administrators a secure dashboard for managing the knowledge base, announcements, feedback, and system activity.
 
@@ -57,7 +57,7 @@ Before running the project, make sure you have:
 
 1. Start Apache and MySQL in the XAMPP Control Panel.
 2. Open phpMyAdmin and import the database file:
-   `C:\xampp\htdocs\NEW COMSAI\database\new_comsai_db.sql`
+   `C:\xampp\htdocs\COMSAI SYSTEM\database\new_comsai_db.sql`
 3. Copy `.env.example` to `.env` and update the values for your local database connection:
    - `DB_HOST`
    - `DB_PORT`
@@ -69,15 +69,15 @@ Before running the project, make sure you have:
    - `OPENAI_EMBEDDINGS_ENABLED=1` (only if semantic retrieval is enabled)
 5. Create the first administrator account:
 
-   `C:\xampp\php\php.exe "C:\xampp\htdocs\NEW COMSAI\bin\create_admin.php"`
+   `C:\xampp\php\php.exe "C:\xampp\htdocs\COMSAI SYSTEM\bin\create_admin.php"`
 
 6. Verify the database connection:
 
-   `C:\xampp\php\php.exe "C:\xampp\htdocs\NEW COMSAI\bin\test_db.php"`
+   `C:\xampp\php\php.exe "C:\xampp\htdocs\COMSAI SYSTEM\bin\test_db.php"`
 
 7. Run the project tests:
 
-   `C:\xampp\php\php.exe "C:\xampp\htdocs\NEW COMSAI\tests\run.php"`
+   `C:\xampp\php\php.exe "C:\xampp\htdocs\COMSAI SYSTEM\tests\run.php"`
 
 ## Configuration
 
@@ -99,9 +99,9 @@ For shared hosting, create a MySQL database in the hosting control panel and set
 
 ## Local URLs
 
-- Student chat: `http://localhost/NEW%20COMSAI/`
-- Admin login: `http://localhost/NEW%20COMSAI/login.php`
-- Admin dashboard: `http://localhost/NEW%20COMSAI/admin/index.php`
+- Student chat: `http://localhost/COMSAI%20SYSTEM/`
+- Admin login: `http://localhost/COMSAI%20SYSTEM/login.php`
+- Admin dashboard: `http://localhost/COMSAI%20SYSTEM/admin/index.php`
 - phpMyAdmin: `http://localhost/phpmyadmin/`
 
 Note: The directory contains a space in the folder name, so `%20` is used in browser URLs.
