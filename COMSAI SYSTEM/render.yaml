@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: comsai
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_NAME
+        value: new_comsai_db
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false

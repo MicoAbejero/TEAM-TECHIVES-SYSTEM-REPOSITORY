@@ -97,6 +97,19 @@ OPENAI_EMBEDDINGS_ENABLED=0
 
 For shared hosting, create a MySQL database in the hosting control panel and set the exact database credentials in `.env` on the server. Ensure PHP has `pdo_mysql` enabled and Apache allows `.htaccess` rules.
 
+### Deploy to Render
+
+Render does not provide a managed MySQL database. Before deploying, provision an externally hosted MySQL or MariaDB database that permits connections from Render and can import the project schema. Configure it to use the database name `new_comsai_db`, as declared by the schema file.
+
+1. Push this project to a Git provider supported by Render. Do not commit `.env` or production database credentials.
+2. In Render, create a Blueprint from the repository and select `render.yaml`. The Blueprint builds the Docker image and creates the web service.
+3. Enter the external database host, username, and password when prompted for `DB_HOST`, `DB_USER`, and `DB_PASS`. Keep `DB_PORT` at the port provided by the database host. Render generates `APP_KEY` for the service.
+4. Import `database/new_comsai_db.sql` into the external database. Confirm the provider permits the schema file's `CREATE DATABASE` and `USE new_comsai_db` statements; otherwise adapt those statements for the provider's assigned database before importing.
+5. In the Render service Shell, run `php bin/create_admin.php` and follow its prompts. Save the one-time password securely.
+6. Open the Render service URL and confirm the student page and administrator sign-in work. Use HTTPS and replace any demonstration or seeded content before inviting users.
+
+The Docker build excludes local `.env` files, Markdown documentation, tests, and SQL files. The schema remains in the source repository for database initialization; it is not included in the running web image.
+
 ## Local URLs
 
 - Student chat: `http://localhost/COMSAI%20SYSTEM/`

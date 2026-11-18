@@ -52,9 +52,11 @@ function start_app_session(): void
         return;
     }
     session_name('NEWCOMSAISESSID');
+    $secureCookies = app_env('APP_ENV', 'local') === 'production'
+        || (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off');
     session_set_cookie_params([
         'httponly' => true,
-        'secure' => !empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off',
+        'secure' => $secureCookies,
         'samesite' => 'Lax',
         'path' => '/',
     ]);

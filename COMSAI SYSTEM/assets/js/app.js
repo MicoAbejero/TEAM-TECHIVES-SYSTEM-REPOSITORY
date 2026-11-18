@@ -6,6 +6,7 @@
   const sendButton = document.querySelector("#send-button");
   const count = document.querySelector("#char-count");
   const csrf = document.querySelector('meta[name="csrf-token"]').content;
+  let latestFollowUp = null;
   let busy = false;
   let maintenanceMode = false;
   let historyReady = Promise.resolve();
@@ -146,6 +147,8 @@
     "legacy-sourced": ["References saved", "mode-grounded"],
   })[mode] || null;
   const addMessage = (sender, text, sources = [], mode = "") => {
+    latestFollowUp?.remove();
+    latestFollowUp = null;
     welcome?.remove();
     const article = document.createElement("article");
     article.className = `message ${sender}`;
@@ -213,7 +216,10 @@
       followUp.append(followUpText, followUpButton);
     }
     list.append(article);
-    if (followUp) list.append(followUp);
+    if (followUp) {
+      list.append(followUp);
+      latestFollowUp = followUp;
+    }
     scrollToBottom();
   };
 
@@ -367,6 +373,7 @@
         throw new Error(payload?.error || "Could not start a new chat. Please refresh the page.");
       }
       list.replaceChildren();
+      latestFollowUp = null;
       const fresh = welcome?.cloneNode(true);
       if (fresh) list.append(fresh);
     } catch (error) {

@@ -7,19 +7,9 @@ This manual explains how authorized staff can manage the COMSAI student informat
 1. Open the administrator sign-in page: `http://localhost/COMSAI%20SYSTEM/login.php` for a local XAMPP installation, or use `/login.php` on your deployed site.
 2. Enter your administrator email and password, then select **Sign in**.
 3. There is no public administrator registration. Accounts must be provisioned by authorized staff.
-4. On first sign-in, change a provided or temporary password from **Administrator account**.
+4. On first sign-in, change your password from **Administrator account**.
 
-### Accounts listed in the project README
-
-These are the three credentials currently listed in `README.md`. The first is labeled as a test account, not an administrator account. The application does not guarantee that any of these accounts exist in every database; a fresh installation creates its first administrator through the setup script.
-
-| Account label | Email / username | Password |
-| --- | --- | --- |
-| Test account | `test01@gmail.com` | `test012345678` |
-| Administrator account 1 | `admin01@gmail.com` | `admin0123456789` |
-| Administrator account 2 | `admin02@gmail.com` | `admin0987654321` |
-
-These credentials are for local or demonstration use only. Change or remove them before deployment, and do not publish this manual with working passwords.
+There are no default administrator credentials. Provision accounts through the setup process, and do not reuse demonstration credentials in a public deployment.
 
 ## Navigation and roles
 
