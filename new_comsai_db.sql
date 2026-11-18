@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2026 at 05:33 PM
+-- Generation Time: Nov 18, 2026 at 01:10 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -428,7 +428,13 @@ INSERT INTO `activity_logs` (`id`, `admin_id`, `action`, `entity_type`, `entity_
 (386, 2, 'login', 'admin', 2, '2026-11-17 09:57:38'),
 (387, 2, 'login', 'admin', 2, '2026-11-17 14:17:04'),
 (388, 2, 'login', 'admin', 2, '2026-11-17 14:43:23'),
-(389, 2, 'login', 'admin', 2, '2026-11-17 16:18:15');
+(389, 2, 'login', 'admin', 2, '2026-11-17 16:18:15'),
+(390, 2, 'login', 'admin', 2, '2026-11-18 06:38:27'),
+(391, 2, 'disable', 'student-interface', NULL, '2026-11-18 06:38:34'),
+(392, 2, 'enable', 'student-interface', NULL, '2026-11-18 06:39:01'),
+(393, 2, 'save', 'knowledge', 30, '2026-11-18 06:57:12'),
+(394, 2, 'save', 'knowledge', 30, '2026-11-18 06:58:18'),
+(395, 2, 'login', 'admin', 2, '2026-11-18 09:17:56');
 
 -- --------------------------------------------------------
 
@@ -472,7 +478,7 @@ CREATE TABLE `admin_activity_state` (
 --
 
 INSERT INTO `admin_activity_state` (`admin_id`, `last_seen_chat_message_id`) VALUES
-(2, 1326),
+(2, 1381),
 (4, 955);
 
 -- --------------------------------------------------------
@@ -491,7 +497,7 @@ CREATE TABLE `admin_feedback_state` (
 --
 
 INSERT INTO `admin_feedback_state` (`admin_id`, `last_seen_feedback_id`) VALUES
-(2, 17),
+(2, 18),
 (4, 12);
 
 -- --------------------------------------------------------
@@ -537,7 +543,7 @@ CREATE TABLE `app_settings` (
 --
 
 INSERT INTO `app_settings` (`setting_key`, `setting_value`, `updated_at`) VALUES
-('student_interface_enabled', '1', '2026-11-16 11:53:03');
+('student_interface_enabled', '1', '2026-11-18 06:39:01');
 
 -- --------------------------------------------------------
 
@@ -752,7 +758,29 @@ INSERT INTO `chat_messages` (`id`, `chat_session_id`, `sender`, `message`, `resp
 (1330, 266, 'student', 'can i ask about inc grade?', NULL, NULL, '2026-11-17 15:54:57'),
 (1331, 266, 'assistant', '**Who should I contact if I have an INC grade?**\nFor concerns regarding an INC grade, contact the professor handling the subject to ask about the requirements and procedures for completing your INC.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Academic Procedures\",\"url\":\"\"}]', '2026-11-17 15:54:57'),
 (1332, 266, 'student', 'how to comply inc grades', NULL, NULL, '2026-11-17 15:55:38'),
-(1333, 266, 'assistant', '**How do I comply with an INC grade?**\nThe verified CCS/Mabini Colleges procedure for completing an INC grade is:\r\n\r\n1. Get the INC Form from the Registrar\'s Office.\r\n2. Ask your professor for the remaining requirements needed to complete your INC grade.\r\n3. Complete all missing requirements given by your professor.\r\n4. Have your professor sign the INC Form and submit the required grade or completion details.\r\n5. Return the INC Form to the Registrar\'s Office for processing and updating your grade.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Academic Procedures\",\"url\":\"\"}]', '2026-11-17 15:55:38');
+(1333, 266, 'assistant', '**How do I comply with an INC grade?**\nThe verified CCS/Mabini Colleges procedure for completing an INC grade is:\r\n\r\n1. Get the INC Form from the Registrar\'s Office.\r\n2. Ask your professor for the remaining requirements needed to complete your INC grade.\r\n3. Complete all missing requirements given by your professor.\r\n4. Have your professor sign the INC Form and submit the required grade or completion details.\r\n5. Return the INC Form to the Registrar\'s Office for processing and updating your grade.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Academic Procedures\",\"url\":\"\"}]', '2026-11-17 15:55:38'),
+(1334, 267, 'student', 'Who are the CCS faculty members and Council officers?', NULL, NULL, '2026-11-17 16:41:32'),
+(1335, 267, 'assistant', '**Who are the CCS faculty members?**\nThe current CCS faculty and staff listed in the COMSAI dataset are:\r\n\r\n1. Frank Kiven B. Ablao, LPT, MIS\r\nPosition: OIC Dean, CCS and MC Technical Head.\r\nQualifications: Civil Service Professional; Trainer Methodology Level 1; Computer Programming NC IV; Visual Graphics Design NC III; Automotive Service (Engine Repair) NC II; Electronic Products Assembly and Servicing NC II.\r\n\r\n2. Christian Drigon F. Aga, LPT, JD\r\nPosition: CCS Administrator, MIT (Unit Earner).\r\nEducation: Bachelor of Arts in Economics, Polytechnic University of the Philippines; Certificate in Computer Education, De La Salle University; Certificate in Teaching, Philippine Normal University - Manila.\r\n\r\n3. Edcel S. Martinez\r\nPosition: Head, Computer Internet Lab.\r\nEducation and qualifications: Bachelor of Science in Computer Science; Professional Education; 2D Animation NC III; Computer Systems Servicing NC II; Visual Graphics Design NC III.\r\n\r\n4. Ian Godwin G. Agapito\r\nPosition: CCS Instructor.\r\nEducation and qualifications: Professional Education; Bachelor of Science in Computer Science.\r\n\r\n5. Aeron Dave C. Enova, LPT, CRS, CAWS\r\nPositions: CCS Central Council Adviser, Practicum Coordinator, and Research Coordinator.\r\nEducation and qualifications: Master of Science in Computer Science (ongoing); Master of Science in Information Technology (27 units); Juris Doctor (64 units); Certified Academic Writing Specialist; Certified Research Specialist; Civil Service Professional; Data Analyst.\r\n\r\n6. Kevin-Ezer F. Tanierla\r\nPosition: CCS Instructor and Software Engineer.\r\nEducation and qualifications: Bachelor of Science in Computer Science; Programming NC IV; Animation NC III.\r\nMC Portal projects: Digital ID, Digital Permit, Attendance Monitoring System, and Digital Tickets.\r\n\r\n7. John Eddie Ablao\r\nPosition: Software Engineer.\r\nEducation: Bachelor of Science in Information Technology.\r\n\r\n8. John Virgel Lo\r\nPosition: System Administrator.\r\nEducation: Bachelor of Science in Computer Science.\r\n\r\n9. Ferdinand O. Postre\r\nPosition: Technical Support Assistant.\r\nEducation and qualifications: Bachelor of Science in Computer Science; Computer Systems Servicing NC II.\r\n\r\n10. Annabel Dichoso Nagera, LPT\r\nPosition: Part-Time Instructor; DepEd Teacher III.\r\nEducation and qualifications: Bachelor of Science in Computer Science; Master in Information Technology (Unit Earner); Professional Education; Master in Education (Unit Earner).\n\n**CCS Central Council Officers**\nThe College of Computer Studies Central Council Officers for Academic Year 2026–2027\r\n\r\nGovernor: Selene E. Tychingco\r\nVice Governor – Internal: Angel Ayessa O. Cacho\r\nVice Governor – External: Giedhell Ann M. Serrano\r\nExecutive Secretary: Abiegail T. Rellermo\r\nAssistant Secretary: Lorren Joyce L. Erandio\r\nChief Treasurer: Renalyn T. Ubalde\r\nDeputy Treasurer: Anika Kaye E. Arjite\r\nAuditor: Renz Darrel O. Gomez\r\nChief Peace Officer: Justine D. Canaria\r\nDeputy Peace Officer: Jose Russel M. Cabunias\r\nDeputy Peace Officer: John Kevin B. Abogado\r\nChief Communication and Media Officer: John Bernard C. De Leon\r\nDeputy Communication and Media Officer: Francis Kevin Y. Calvario\r\nCommunication and Media Officer: Shalom Emannuel M. Abiera\r\nCommunication and Media Officer: Richard A. Boribor\r\nCommunication and Media Officer: Condrad Jaimar G. Sale\r\nCommunication and Media Officer: Candice Fine Y. Montemayor\r\nFourth Year Representative: Eya Mae R. Bana\r\nThird Year Representative: Gian Carlo D. Bacia\r\nSecond Year Representative: Chelsey Joelle B. Esguerra\r\nFirst Year Representative: John Mark N. Molina\r\nFirst Year Representative: Mark Zedrix Zantua\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Faculty and Staff\",\"url\":\"\"},{\"title\":\"COMSAI Dataset - CCS Council Officers\",\"url\":\"\"}]', '2026-11-17 16:41:32'),
+(1336, 267, 'student', 'who is the dean of the ccs and where can i locate the dean?', NULL, NULL, '2026-11-17 16:42:29'),
+(1337, 267, 'assistant', '**Who is the CCS Dean?**\nThe OIC Dean of the College of Computer Studies is Sir Frank Kiven B. Ablao. He is also the Technical Head of Mabini Colleges, a Licensed Professional Teacher, and a Civil Service Professional.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Faculty and Staff\",\"url\":\"\"}]', '2026-11-17 16:42:29'),
+(1338, 267, 'student', 'who is the dean of the ccs and where can i locate the dean office?', NULL, NULL, '2026-11-17 16:43:04'),
+(1339, 267, 'assistant', '**Where can I find the CCS Dean?**\nThe CCS Dean office is on the second floor, beside the President\'s office. Ask the CCS office or CCS Council to confirm the Dean\'s schedule.\n\n**Who is the CCS Dean?**\nThe OIC Dean of the College of Computer Studies is Sir Frank Kiven B. Ablao. He is also the Technical Head of Mabini Colleges, a Licensed Professional Teacher, and a Civil Service Professional.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Faculty and Staff\",\"url\":\"\"}]', '2026-11-17 16:43:04'),
+(1367, 272, 'student', 'hello', NULL, NULL, '2026-11-18 07:04:01'),
+(1368, 272, 'assistant', 'Hello! I’m COMSAI, your CCS Student Information Assistant. How may I help you today?', 'greeting', '[]', '2026-11-18 07:04:01'),
+(1369, 272, 'student', 'ano pwede kong itanong dito', NULL, NULL, '2026-11-18 07:04:16'),
+(1370, 272, 'assistant', 'I\'m sorry, but I couldn\'t find sufficient verified information about that in the COMSAI knowledge base. Please check the official CCS communication channels or contact the appropriate CCS personnel.', 'unverified', '[]', '2026-11-18 07:04:16'),
+(1371, 272, 'student', 'sino ang mga ccs council officers', NULL, NULL, '2026-11-18 07:04:49'),
+(1372, 272, 'assistant', 'I\'m sorry, but I couldn\'t find sufficient verified information about that in the COMSAI knowledge base. Please check the official CCS communication channels or contact the appropriate CCS personnel.', 'unverified', '[]', '2026-11-18 07:04:49'),
+(1373, 272, 'student', 'saan makikita ang main laboratory?', NULL, NULL, '2026-11-18 07:05:27'),
+(1374, 272, 'assistant', 'I\'m sorry, but I couldn\'t find sufficient verified information about that in the COMSAI knowledge base. Please check the official CCS communication channels or contact the appropriate CCS personnel.', 'unverified', '[]', '2026-11-18 07:05:27'),
+(1375, 272, 'student', 'where can i locate main laboratory and key laboratory', NULL, NULL, '2026-11-18 07:07:14'),
+(1376, 272, 'assistant', '**Where is the Main Laboratory?**\nThe Main Laboratory is located on the second floor, MRI Building, Room 207. If you cannot find it, ask the CCS office or a designated staff member.\n\n**Where is the Key Laboratory?**\nKey Laboratory (Keylab) is located on the second floor, MRI Building, Room 212. Please confirm with CCS personnel if the room assignment has changed.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Rooms and Laboratories\",\"url\":\"\"}]', '2026-11-18 07:07:14'),
+(1377, 272, 'student', 'latest announcement today?', NULL, NULL, '2026-11-18 07:07:30'),
+(1378, 272, 'assistant', '**CCS Department Fee Payment Options - 1,400 pesos**\n\nThe CCS department fee listed in this announcement is 1,400 pesos. To pay the CCS department fee, use one of the authorized CCS Central Council GCash channels below:\r\n\r\nExecutive Treasurer Renalyn Ubalde: 0907 919 2632\r\nDeputy Treasurer Anika Kaye Arjite: 0967 188 7631\r\n\r\nPlease confirm the amount and payment details through the official CCS Facebook page or approved CCS communication channel before sending money.', 'announcement', '[{\"title\":\"Official CCS announcement\",\"url\":\"\"}]', '2026-11-18 07:07:30'),
+(1379, 272, 'student', 'can i ask about portal problems?', NULL, NULL, '2026-11-18 07:08:14'),
+(1380, 272, 'assistant', '**Where can I ask about my grades?**\nYou can view your official grades in the student portal. For concerns, questions, or clarification about a specific subject grade, use either of these options:\r\n\r\nInstitutional email: Contact the subject instructor using the official email address in the student portal directory.\r\n\r\nIn-person inquiry: Visit your subject instructor during scheduled office hours to discuss the grade.\n\n', 'knowledge-base', '[{\"title\":\"COMSAI Dataset - Academic Procedures\",\"url\":\"\"}]', '2026-11-18 07:08:14'),
+(1381, 272, 'student', 'when is the academic break?', NULL, NULL, '2026-11-18 07:10:20'),
+(1382, 272, 'assistant', 'I\'m sorry, but I couldn\'t find sufficient verified information about that in the COMSAI knowledge base. Please check the official CCS communication channels or contact the appropriate CCS personnel.', 'unverified', '[]', '2026-11-18 07:10:20');
 
 -- --------------------------------------------------------
 
@@ -798,7 +826,9 @@ INSERT INTO `chat_sessions` (`id`, `session_token_hash`, `created_at`, `last_act
 (247, '5b55820658ea3249661e44ef4a16743a1019099bb83ef8c7cf3c59fefa54df88', '2026-11-17 09:36:15', '2026-11-17 09:36:15'),
 (261, '37df6dac15a2cae580a8a85b4649060e916b92a31a45c20a6e9f9cd6dd07396e', '2026-11-17 14:42:55', '2026-11-17 14:42:55'),
 (263, '2a3cb6437d0b73b95702331d29ece7170e3bc764d93d2fdb92c84db76de04607', '2026-11-17 14:54:05', '2026-11-17 14:54:05'),
-(266, '34bc312de14f73c96c39f3cbe9aefb911722e709787a7e72f47bb99dfe116344', '2026-11-17 15:30:38', '2026-11-17 15:55:32');
+(266, '34bc312de14f73c96c39f3cbe9aefb911722e709787a7e72f47bb99dfe116344', '2026-11-17 15:30:38', '2026-11-17 15:55:32'),
+(267, 'a9f7dead48c0f1d8c8d0e1ca7ca61944d527fb0d73fe3193f3fa9267cb505f2f', '2026-11-17 16:41:23', '2026-11-17 16:42:59'),
+(272, '2c705fca71fd99ac199817a878721919c66127b930ce7491a1c5b9a2be723c78', '2026-11-18 07:04:01', '2026-11-18 07:10:13');
 
 -- --------------------------------------------------------
 
@@ -820,7 +850,8 @@ INSERT INTO `daily_chat_limits` (`usage_date`, `visitor_count`) VALUES
 ('2026-11-12', 1),
 ('2026-11-13', 2),
 ('2026-11-16', 2),
-('2026-11-17', 5);
+('2026-11-17', 5),
+('2026-11-18', 2);
 
 -- --------------------------------------------------------
 
@@ -848,7 +879,9 @@ INSERT INTO `daily_chat_visitors` (`usage_date`, `visitor_hash`) VALUES
 ('2026-11-17', '725aec3c8e2947eb8a4adff7208ebdfcfa61103e8a5014b84960c93495e0b68e'),
 ('2026-11-17', '9943c1f892d837c66fd7dc5182e4321b087829c0d930c790a668a3d1788111dd'),
 ('2026-11-17', 'ae7d8203b07138f01b1be30ed8221c64927c1fc178d94c0e59ca68a3be5724ad'),
-('2026-11-17', 'f4b45c4d3bd17956a2acf145e768f290537fe6dbecd500c55bed9943f86780de');
+('2026-11-17', 'f4b45c4d3bd17956a2acf145e768f290537fe6dbecd500c55bed9943f86780de'),
+('2026-11-18', '27ae4ff64620ed8182f226007a21c8deb1e5fe73b13a75fdb590247a52b87d9f'),
+('2026-11-18', '455d988640777f649a6b5659a52b0c52fa5cd7feb353b9afafd04fab572f48d9');
 
 -- --------------------------------------------------------
 
@@ -879,7 +912,7 @@ CREATE TABLE `knowledge_base` (
 INSERT INTO `knowledge_base` (`id`, `category_id`, `title`, `content`, `search_terms`, `source_title`, `source_url`, `effective_date`, `expiration_date`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
 (28, 2, 'CCS Central Council Officers', 'The College of Computer Studies Central Council Officers for Academic Year 2026–2027\r\n\r\nGovernor: Selene E. Tychingco\r\nVice Governor – Internal: Angel Ayessa O. Cacho\r\nVice Governor – External: Giedhell Ann M. Serrano\r\nExecutive Secretary: Abiegail T. Rellermo\r\nAssistant Secretary: Lorren Joyce L. Erandio\r\nChief Treasurer: Renalyn T. Ubalde\r\nDeputy Treasurer: Anika Kaye E. Arjite\r\nAuditor: Renz Darrel O. Gomez\r\nChief Peace Officer: Justine D. Canaria\r\nDeputy Peace Officer: Jose Russel M. Cabunias\r\nDeputy Peace Officer: John Kevin B. Abogado\r\nChief Communication and Media Officer: John Bernard C. De Leon\r\nDeputy Communication and Media Officer: Francis Kevin Y. Calvario\r\nCommunication and Media Officer: Shalom Emannuel M. Abiera\r\nCommunication and Media Officer: Richard A. Boribor\r\nCommunication and Media Officer: Condrad Jaimar G. Sale\r\nCommunication and Media Officer: Candice Fine Y. Montemayor\r\nFourth Year Representative: Eya Mae R. Bana\r\nThird Year Representative: Gian Carlo D. Bacia\r\nSecond Year Representative: Chelsey Joelle B. Esguerra\r\nFirst Year Representative: John Mark N. Molina\r\nFirst Year Representative: Mark Zedrix Zantua', 'CCS Central Council Officers, CCS council roster, central council members, student council officers, student government, list all officers, council positions, vice governor, peace officer, communications and media officer, year representatives, council adviser, academic year 2026 2027, Selene Tychingco, Angel Cacho', 'COMSAI Dataset - CCS Council Officers', NULL, '2026-11-13 17:53:00', NULL, 'published', NULL, '2026-10-26 07:40:57', '2026-11-16 14:00:44'),
 (29, 27, 'What is COMSAI?', 'COMSAI is an AI-powered student information assistance chatbot designed to help users access information related to the College of Computer Studies (CCS) of Mabini Colleges, Inc.', 'What is COMSAI?, COMSAI definition, meaning of COMSAI, what does COMSAI do, AI student assistant, student information chatbot, College of Computer Studies assistant, what is COMSAI', 'COMSAI Dataset - General Information', NULL, '2026-11-13 18:32:00', NULL, 'published', 2, '2026-10-27 05:49:51', '2026-11-16 14:00:44'),
-(30, 27, 'What information can I ask COMSAI about?', 'You can ask about CCS faculty and officers, rooms and laboratories, announcements, and department-related academic processes. If information is not available, COMSAI will direct you to the appropriate CCS personnel.', 'What information can I ask COMSAI about?, topics COMSAI can answer, supported student questions, what can I ask, available information, faculty officers rooms labs announcements academic processes, COMSAI capabilities, what information can I ask COMSAI about', 'COMSAI Dataset - General Information', NULL, '2026-11-13 18:33:00', NULL, 'published', 2, '2026-10-27 08:19:37', '2026-11-16 14:00:44'),
+(30, 27, 'What information can I ask COMSAI about?', 'You can ask about CCS faculty and officers, rooms and laboratories, announcements, and department-related academic processes. If information is not available, COMSAI will direct you to the appropriate CCS personnel.', 'What information can I ask COMSAI about?, topics COMSAI can answer, supported student questions, what can I ask, available information, faculty officers rooms labs announcements academic processes, COMSAI capabilities, what information can I ask COMSAI about', 'COMSAI Dataset - General Information', NULL, '2026-11-13 18:33:00', NULL, 'published', 2, '2026-10-27 08:19:37', '2026-11-18 06:58:18'),
 (31, 27, 'Is COMSAI an official source of CCS information?', 'COMSAI provides answers based on information approved for its CCS knowledge base. For urgent matters or information that may have changed, confirm with the CCS Council or the appropriate CCS personnel.', 'Is COMSAI an official source of CCS information?, COMSAI official status, can I rely on this answer, verify CCS information, information accuracy, confirm with the college, official authority, urgent official matters, is COMSAI an official source of CCS information', 'COMSAI Dataset - General Information', NULL, '2026-11-13 18:36:00', NULL, 'published', 2, '2026-10-27 08:43:34', '2026-11-16 14:00:44'),
 (32, 1, 'Who is the CCS Dean?', 'The OIC Dean of the College of Computer Studies is Sir Frank Kiven B. Ablao. He is also the Technical Head of Mabini Colleges, a Licensed Professional Teacher, and a Civil Service Professional.', 'Who is the CCS Dean?, CCS Dean name, who leads the department, department head, OIC Dean, technical head, Frank Kiven B Ablao, Sir Frank Ablao, the CCS Dean', 'COMSAI Dataset - Faculty and Staff', NULL, '2026-11-13 18:21:00', NULL, 'published', 2, '2026-10-27 08:47:19', '2026-11-16 14:00:44'),
 (33, 1, 'Where can I find the CCS Dean?', 'The CCS Dean office is on the second floor, beside the President\'s office. Ask the CCS office or CCS Council to confirm the Dean\'s schedule.', 'Where can I find the CCS Dean?, Dean office location, locate CCS Dean, where is the Dean, CCS office location, second floor, beside the President office, Dean office directions, where can I find the CCS Dean', 'COMSAI Dataset - Faculty and Staff', NULL, '2026-11-13 18:24:00', NULL, 'published', 2, '2026-10-27 08:47:39', '2026-11-16 14:00:44'),
@@ -966,12 +999,12 @@ INSERT INTO `rate_limits` (`key_hash`, `window_started_at`, `request_count`) VAL
 ('7a5e2d316b31ae246bb9d84433f713cfdc6968455289321205009f8356194a26', '2026-11-16 23:44:58', 2),
 ('894c9534e5154965b7ff139da1183dd4dace1924841333fa286f095ff41d5d07', '2026-10-17 11:50:00', 2),
 ('9964a0741698ea3291233e275599f8794007d3e2762727d7740d3da4e84c3090', '2026-10-16 20:35:30', 2),
-('b171aa63fb3e7f326c0a362ce4edb5a9dbe4acc640286dabb5a9024e843b085e', '2026-11-18 00:18:15', 1),
+('b171aa63fb3e7f326c0a362ce4edb5a9dbe4acc640286dabb5a9024e843b085e', '2026-11-18 17:17:55', 1),
 ('c13759cd4d4c01548e8d7d250553012c58caa6f2a8dca3585aeb4b17fb7f5cab', '2026-11-11 19:16:03', 6),
 ('ca6f3783daabc355a59d2db6770ee01de514f04713dae293bc06d11774937015', '2026-10-17 15:06:02', 1),
-('ea6c89f32b31aebc3ddd29fe1dc33081a3bec125769eeff02f20401e1b80f450', '2026-11-17 11:37:06', 5),
-('ec32714584d3713ed9edac2681df71c1e8ca6b3059fcd2290b564bb4078da110', '2026-11-18 00:18:15', 1),
-('ef04203a388336f4874fc880761d3ea1f9ec1b85f2bbd853bee775ee930457fe', '2026-11-17 23:55:32', 1);
+('ea6c89f32b31aebc3ddd29fe1dc33081a3bec125769eeff02f20401e1b80f450', '2026-11-18 14:38:51', 1),
+('ec32714584d3713ed9edac2681df71c1e8ca6b3059fcd2290b564bb4078da110', '2026-11-18 17:17:55', 1),
+('ef04203a388336f4874fc880761d3ea1f9ec1b85f2bbd853bee775ee930457fe', '2026-11-18 15:10:13', 1);
 
 -- --------------------------------------------------------
 
@@ -994,7 +1027,8 @@ INSERT INTO `student_feedback` (`id`, `feedback`, `created_at`) VALUES
 (14, 'test 2', '2026-11-17 03:37:18'),
 (15, 'test 3', '2026-11-17 03:37:23'),
 (16, 'test 4', '2026-11-17 03:40:10'),
-(17, 'test 5', '2026-11-17 03:40:16');
+(17, 'test 5', '2026-11-17 03:40:16'),
+(18, 'under maintenance', '2026-11-18 06:38:51');
 
 --
 -- Indexes for dumped tables
@@ -1112,49 +1146,49 @@ ALTER TABLE `student_feedback`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=396;
 
 --
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `chat_messages`
 --
 ALTER TABLE `chat_messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1334;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1383;
 
 --
 -- AUTO_INCREMENT for table `chat_sessions`
 --
 ALTER TABLE `chat_sessions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=267;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
 
 --
 -- AUTO_INCREMENT for table `knowledge_base`
 --
 ALTER TABLE `knowledge_base`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=647;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=664;
 
 --
 -- AUTO_INCREMENT for table `student_feedback`
 --
 ALTER TABLE `student_feedback`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
