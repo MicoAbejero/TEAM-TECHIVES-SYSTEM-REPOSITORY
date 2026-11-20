@@ -382,11 +382,15 @@
   });
   const feedbackForm = document.querySelector('#student-feedback-form');
   const feedbackInput = document.querySelector('#student-feedback');
+  const feedbackCount = document.querySelector('#student-feedback-count');
   const feedbackStatus = document.querySelector('#student-feedback-status');
   const feedbackButton = feedbackForm?.querySelector('button[type="submit"]');
   const feedbackDropdown = document.querySelector('.student-feedback-box');
   const feedbackSummary = feedbackDropdown?.querySelector('summary');
   const feedbackThankYou = document.querySelector('#student-feedback-thank-you');
+  const updateFeedbackCount = () => {
+    if (feedbackInput && feedbackCount) feedbackCount.textContent = `${feedbackInput.value.length.toLocaleString()} / 3,000 characters`;
+  };
   const updateFeedbackValidation = () => {
     if (!feedbackInput || !feedbackButton || !feedbackStatus) return;
     const value = feedbackInput.value;
@@ -396,7 +400,11 @@
     else if (value.length > 3000) feedbackStatus.textContent = 'Feedback must be 3,000 characters or fewer.';
     else if (/^Enter feedback|^Feedback must be/.test(feedbackStatus.textContent)) feedbackStatus.textContent = '';
   };
-  feedbackInput?.addEventListener('input', updateFeedbackValidation);
+  updateFeedbackCount();
+  feedbackInput?.addEventListener('input', () => {
+    updateFeedbackCount();
+    updateFeedbackValidation();
+  });
   updateFeedbackValidation();
   feedbackSummary?.addEventListener('click', (event) => {
     if (feedbackDropdown?.dataset.submitted === 'true') event.preventDefault();
@@ -425,6 +433,7 @@
       const payload = await response.json().catch(() => null);
       if (!response.ok || !payload?.ok) throw new Error(payload?.error || 'Feedback could not be saved. Please try again.');
       feedbackForm.reset();
+      updateFeedbackCount();
       feedbackForm.dataset.submitted = 'true';
       feedbackInput.disabled = true;
       button.disabled = true;

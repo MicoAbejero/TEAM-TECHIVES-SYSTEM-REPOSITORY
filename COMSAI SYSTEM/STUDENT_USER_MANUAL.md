@@ -30,7 +30,7 @@ General replies may be AI-generated. Even when sources are shown, confirm time-s
 
 ## Send feedback
 
-Open **Send student feedback** in the side panel, enter your comments, and select **Submit feedback**. Feedback is submitted anonymously and can be reviewed by administrators. Do not include your name, student number, contact details, passwords, or other personal or sensitive information.
+Open **Send student feedback** in the side panel, enter up to 3,000 characters, and select **Submit feedback**. A counter shows how many characters you have entered. Feedback is submitted anonymously and can be reviewed by administrators. Do not include your name, student number, contact details, passwords, or other personal or sensitive information.
 
 ## If COMSAI is unavailable
 

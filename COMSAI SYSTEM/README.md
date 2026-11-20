@@ -97,19 +97,6 @@ OPENAI_EMBEDDINGS_ENABLED=0
 
 For shared hosting, create a MySQL database in the hosting control panel and set the exact database credentials in `.env` on the server. Ensure PHP has `pdo_mysql` enabled and Apache allows `.htaccess` rules.
 
-### Deploy to Render
-
-Render can run this PHP project with Docker, but it does not provide a managed MySQL database. Prepare an external MySQL/MariaDB database that accepts connections from Render. If possible, name it `new_comsai_db`; otherwise, make the schema import compatible with the database name your provider assigns.
-
-1. Push the project to the connected Git repository. Keep `.env` and production credentials out of Git.
-2. In Render, create a Blueprint from the repository and select `COMSAI SYSTEM/render.yaml`. The service root directory is set to `COMSAI SYSTEM`.
-3. Before the service can become healthy, import `database/new_comsai_db.sql` into the external database. Check whether the provider permits the schema's `CREATE DATABASE` and `USE new_comsai_db` statements.
-4. Enter the database host, port, name, username, and password in Render when prompted for `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and `DB_PASS`. Do not put these credentials in the repository. Render generates `APP_KEY`.
-5. Deploy the Blueprint. The free compute plan is suitable for testing; change `plan` in `render.yaml` to `starter` if you need an always-on service.
-6. In the Render service Shell, run `php bin/create_admin.php` and follow the prompts. Save the one-time password securely.
-
-The Docker build excludes local `.env` files, Markdown documentation, tests, and SQL files. The schema remains in the repository for database initialization; it is not included in the running web image.
-
 ## Local URLs
 
 - Student chat: `http://localhost/COMSAI%20SYSTEM/`

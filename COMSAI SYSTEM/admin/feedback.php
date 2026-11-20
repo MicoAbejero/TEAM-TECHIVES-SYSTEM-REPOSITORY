@@ -84,7 +84,7 @@ admin_layout_start('Student Feedback', 'feedback.php');
     <input type="hidden" name="_csrf" value="<?= h(csrf_token()) ?>"><input type="hidden" name="return_q" value="<?= h($q) ?>"><input type="hidden" name="return_sort" value="<?= h($sort) ?>"><input type="hidden" name="action" value="bulk_delete">
     <span id="feedback-selection-count" aria-live="polite">0 selected</span><button class="secondary-button" type="button" id="feedback-select-all">Select all</button><button class="danger-button" id="feedback-delete-button" type="submit" disabled>Delete</button>
   </form>
-  <div class="table-wrap"><table><thead><tr><th></th><th>Feedback</th><th>Submitted</th></tr></thead><tbody id="feedback-entries">
+  <div class="table-wrap"><table class="feedback-table"><thead><tr><th></th><th>Feedback</th><th>Submitted</th></tr></thead><tbody id="feedback-entries">
     <?php foreach ($rows as $row): ?><tr data-feedback-row data-sort-date="<?= h($row['created_at']) ?>" <?= (int) $row['id'] > $previousSeenId ? 'data-new-feedback' : '' ?>><td><input type="checkbox" name="ids[]" value="<?= (int) $row['id'] ?>" form="feedback-bulk-form" aria-label="Select feedback submitted <?= h($row['created_at']) ?>"></td><td><?= nl2br(h($row['feedback'])) ?></td><td><?= h($row['created_at']) ?></td></tr><?php endforeach; ?>
     <tr id="feedback-no-results" <?= $rows === [] ? '' : 'hidden' ?>><td colspan="3" class="empty-state">No matching feedback.</td></tr>
   </tbody></table></div>

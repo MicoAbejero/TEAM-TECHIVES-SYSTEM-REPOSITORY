@@ -42,8 +42,8 @@ try {
   <meta name="theme-color" content="#f7faf8">
   <title>COMSAI | CCS Student Information Assistant</title>
   <link rel="icon" type="image/png" href="assets/comsai-icon.png?v=20261028-1">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261117-6">
-  <script src="assets/js/app.js?v=20261117-4" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261120-1">
+  <script src="assets/js/app.js?v=20261120-1" defer></script>
 </head>
 <body>
 <main class="app-shell">
@@ -62,6 +62,7 @@ try {
       <form id="student-feedback-form">
         <label for="student-feedback">Your feedback</label>
         <textarea id="student-feedback" name="feedback" rows="4" maxlength="3000" placeholder="Tell us how COMSAI can improve." required></textarea>
+        <small id="student-feedback-count">0 / 3,000 characters</small>
         <small>Please do not include personal or sensitive information. Feedback is submitted anonymously.</small>
         <button class="button button-primary" type="submit" disabled>Submit feedback</button>
         <p id="student-feedback-status" role="status" aria-live="polite"></p>

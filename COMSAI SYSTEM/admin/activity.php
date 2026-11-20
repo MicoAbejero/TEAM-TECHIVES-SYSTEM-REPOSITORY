@@ -89,7 +89,7 @@ admin_layout_start('Chatbot activity', 'activity.php');
     <input type="hidden" name="_csrf" value="<?= h(csrf_token()) ?>"><input type="hidden" name="return_q" value="<?= h($q) ?>"><input type="hidden" name="return_sort" value="<?= h($sort) ?>"><input type="hidden" name="action" value="bulk_delete">
     <span id="activity-selection-count" aria-live="polite">0 selected</span><button class="secondary-button" type="button" id="activity-select-all">Select all</button><button class="danger-button" id="activity-delete-button" type="submit" disabled>Delete</button>
   </form>
-  <div class="table-wrap"><table><thead><tr><th></th><th>Question</th><th>Received</th></tr></thead><tbody id="activity-entries">
+  <div class="table-wrap"><table class="activity-table"><thead><tr><th></th><th>Question</th><th>Received</th></tr></thead><tbody id="activity-entries">
     <?php foreach ($recent as $item): ?><tr data-activity-row data-sort-date="<?= h($item['created_at']) ?>" <?= (int) $item['id'] > $previousSeenId ? 'data-new-activity' : '' ?>><td><input type="checkbox" name="ids[]" value="<?= (int) $item['id'] ?>" form="activity-bulk-form" aria-label="Select question received <?= h($item['created_at']) ?>"></td><td><?= h($item['message']) ?></td><td><?= h($item['created_at']) ?></td></tr><?php endforeach; ?>
     <tr id="activity-no-results" <?= $recent === [] ? '' : 'hidden' ?>><td colspan="3" class="empty-state">No matching questions.</td></tr>
   </tbody></table></div>
