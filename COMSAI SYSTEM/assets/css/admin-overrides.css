@@ -1,0 +1,336 @@
+.activity-section{margin-top:16px}
+.activity-bulk-toolbar #activity-selection-count{margin-right:auto;color:var(--muted);font-size:14px}
+.feedback-bulk-toolbar #feedback-selection-count{margin-right:auto;color:var(--muted);font-size:14px}
+.admin-page .activity-table,
+.admin-page .feedback-table{table-layout:fixed}
+.admin-page .activity-table th:first-child,
+.admin-page .activity-table td:first-child,
+.admin-page .feedback-table th:first-child,
+.admin-page .feedback-table td:first-child{width:42px}
+.admin-page .activity-table th:nth-child(3),
+.admin-page .activity-table td:nth-child(3),
+.admin-page .feedback-table th:nth-child(3),
+.admin-page .feedback-table td:nth-child(3){width:160px;white-space:nowrap;text-align:left}
+.admin-page .activity-table td,
+.admin-page .feedback-table td{overflow-wrap:anywhere}
+.admin-page .nav-notification-dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 3px rgb(239 68 68 / 16%)}
+.admin-page .nav-notification-dot[hidden]{display:none}
+.admin-page .stats-grid .stat-card{background:linear-gradient(90deg,#06432f 0%,#043a2a 32%,#022819 68%,#000 100%);border-color:#06432f}
+.admin-page .stats-grid .stat-card span,
+.admin-page .stats-grid .stat-card small{color:#c6ded0}
+.admin-page .stats-grid .stat-card strong{color:#fff}
+.admin-page tr[data-new-feedback] td{font-weight:700}
+.admin-page .activity-section tr[data-new-activity] td{font-weight:700}
+.admin-page .admin-shell > .admin-sidebar {
+  background-color: #07523b;
+  background-image: linear-gradient(155deg, #07523b, #06432f);
+}
+.admin-page .admin-shell,
+.admin-page .admin-shell > .admin-sidebar,
+.admin-page .admin-shell > .admin-content {
+  border-radius: 16px;
+}
+.admin-page .nav-menu-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.admin-page .nav-menu-status::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #98a2b3;
+  content: "";
+}
+.admin-page .nav-menu-status.is-enabled::before {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px rgb(34 197 94 / 20%);
+}
+.admin-page .nav-menu-status.is-disabled::before {
+  background: #ef4444;
+  box-shadow: 0 0 0 2px rgb(239 68 68 / 20%);
+}
+
+/* Keep panel search and its filters on one line while letting search fill the row. */
+.admin-page .filter-bar {
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: end;
+}
+.admin-page .filter-bar > .field:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.admin-page .filter-bar > .field:first-child input {
+  width: 100%;
+}
+.admin-page .admin-search-input {
+  position: relative;
+  width: 100%;
+}
+.admin-page .admin-search-input input {
+  width: 100%;
+  padding-right: 72px;
+}
+.admin-page .admin-search-input > span {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  display: grid;
+  width: 19px;
+  height: 19px;
+  color: #667085;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.admin-page .admin-search-input svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.admin-page .admin-search-input > .admin-search-clear {
+  position: absolute;
+  top: 50%;
+  right: 36px;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  padding: 4px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #667085;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.admin-page .admin-search-input > .admin-search-clear svg {
+  width: 100%;
+  height: 100%;
+}
+.admin-page .admin-search-input > .admin-search-clear:hover {
+  background: #f2f4f7;
+  color: #344054;
+}
+.admin-page .admin-search-input > .admin-search-clear:focus-visible {
+  outline: 2px solid #15803d;
+  outline-offset: 1px;
+}
+.admin-page .admin-search-input > .admin-search-clear[hidden] {
+  display: none;
+}
+.admin-page .filter-bar > .field:not(:first-child) {
+  flex: 0 0 auto;
+}
+.admin-page .admin-topbar {
+  display: flex;
+  position: fixed;
+  z-index: 30;
+  top: 16px;
+  right: 24px;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  pointer-events: none;
+}
+.admin-page .admin-topbar .menu-toggle {
+  display: none;
+}
+.admin-page .admin-topbar .admin-presence-wrap {
+  pointer-events: auto;
+}
+@media (max-width: 700px) {
+  .admin-page .admin-topbar {
+    position: relative;
+    top: auto;
+    right: auto;
+    height: 56px;
+    padding: 0 14px;
+    background: linear-gradient(155deg, var(--sidebar-green), var(--sidebar-green-deep));
+    border-bottom: 0;
+    pointer-events: auto;
+  }
+  .admin-page .admin-topbar .menu-toggle {
+    display: block;
+  }
+}
+.admin-page .admin-presence-wrap {
+  position: relative;
+  margin-left: auto;
+}
+.admin-page .admin-presence-inline {
+  margin-left: 12px;
+}
+.admin-page .admin-account-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: max-content;
+  margin-left: auto;
+  pointer-events: auto;
+}
+.admin-page .admin-account-panel .admin-identity {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.admin-page .admin-account-panel .admin-identity small {
+  margin-left: 4px;
+  color: rgb(255 255 255 / 72%);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+.admin-page .admin-account-panel .admin-presence-wrap {
+  margin-left: 0;
+}
+.admin-page .admin-account-panel .admin-presence-toggle {
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgb(255 255 255 / 82%);
+  font-size: 12px;
+  font-weight: 600;
+}
+.admin-page .admin-account-panel .admin-presence-toggle:hover {
+  background: transparent;
+  color: #fff;
+}
+.admin-page .admin-presence-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
+  cursor: pointer;
+}
+.admin-page .admin-presence-toggle strong {
+  font-weight: 800;
+}
+.admin-page .presence-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgb(34 197 94 / 20%);
+}
+.admin-page .admin-presence-panel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 220px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+  box-shadow: 0 12px 30px rgb(16 24 40 / 18%);
+}
+.admin-page .admin-presence-panel strong,
+.admin-page .admin-presence-panel ul {
+  text-align: left;
+}
+.admin-page .admin-presence-panel[hidden] {
+  display: none;
+}
+.admin-page .admin-presence-panel strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.admin-page .admin-presence-panel ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .admin-page .filter-bar {
+    flex-wrap: wrap;
+  }
+  .admin-page .filter-bar > .field:first-child {
+    flex-basis: 100%;
+  }
+}
+
+/* Align the account controls with the dashboard heading on desktop. */
+@media (min-width: 701px) {
+  .admin-page .admin-topbar {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: none;
+  }
+  .admin-page .content-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .admin-page .admin-account-panel {
+    align-items: flex-end;
+    margin-left: auto;
+    margin-top: 0;
+    text-align: right;
+  }
+  .admin-page .admin-account-panel .admin-identity {
+    color: #101828;
+  }
+  .admin-page .admin-account-panel .admin-identity small {
+    color: #667085;
+  }
+  .admin-page .admin-account-panel .admin-presence-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .admin-page .admin-account-panel .admin-presence-toggle,
+  .admin-page .admin-account-panel .admin-presence-toggle:focus,
+  .admin-page .admin-account-panel .admin-presence-toggle:active {
+    padding: 8px 14px !important;
+    border: 1px solid #16a34a !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: #15803d !important;
+    line-height: 1 !important;
+    box-shadow: none !important;
+  }
+  .admin-page .admin-account-panel .admin-presence-toggle:hover {
+    background: rgb(22 163 74 / 10%) !important;
+    color: #15803d !important;
+  }
+  .admin-page .admin-account-panel .presence-dot-outside {
+    display: inline-block;
+    flex: 0 0 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-page .admin-account-panel .admin-identity {
+    color: #fff;
+  }
+  .admin-page .admin-account-panel .admin-identity small {
+    color: rgb(255 255 255 / 72%);
+  }
+  .admin-page .admin-account-panel .admin-presence-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
