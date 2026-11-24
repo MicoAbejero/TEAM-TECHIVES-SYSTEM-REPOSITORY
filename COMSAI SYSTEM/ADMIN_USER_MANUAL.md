@@ -4,7 +4,7 @@ This manual explains how authorized staff can manage the COMSAI student informat
 
 ## Sign in
 
-1. Open the administrator sign-in page: `http://localhost/COMSAI%20SYSTEM/login.php` for a local XAMPP installation, or use `/login.php` on your deployed site.
+1. Open the online administrator sign-in page: `https://comsaiproject.com/login.php`.
 2. Enter your administrator email and password, then select **Sign in**.
 3. There is no public administrator registration. Accounts must be provisioned by authorized staff.
 4. On first sign-in, change your password from **Administrator account**.
