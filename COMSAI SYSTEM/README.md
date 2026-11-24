@@ -6,7 +6,7 @@ A PHP and MySQL-powered student information assistant for the College of Compute
 
 COMSAI is designed to answer student questions using verified, published content rather than unreviewed static text. The application supports anonymous student chat, category browsing, source references, and optional AI-assisted retrieval. Administrators can manage knowledge entries, categories, announcements, and feedback from a protected admin area, while editor and administrator roles maintain separate permissions.
 
-This project is a standalone PHP application with no framework dependency and is intended for local XAMPP-based deployment or a PHP-enabled hosting environment.
+This project is a standalone PHP application with no framework dependency and is intended to run online on a PHP-enabled hosting environment. The production deployment uses the hosted domain, server-side environment variables, and a MySQL/MariaDB database provisioned by the hosting provider.
 
 ## Features
 
@@ -26,7 +26,7 @@ This project is a standalone PHP application with no framework dependency and is
 - PDO for database access
 - HTML, CSS, and JavaScript
 - Apache with `.htaccess` support
-- XAMPP for local development
+- PHP-enabled online hosting environment
 
 ## Project Structure
 
@@ -43,70 +43,63 @@ This project is a standalone PHP application with no framework dependency and is
 - `ADMIN_USER_MANUAL.md` — admin documentation
 - `STUDENT_USER_MANUAL.md` — student documentation
 
-## Requirements
+## Online deployment requirements
 
-Before running the project, make sure you have:
+Before deploying the project online, make sure the hosting account provides:
 
-- XAMPP with Apache and MySQL/MariaDB running
-- PHP 8.2+ with `pdo_mysql` and `mbstring`
-- Apache configured to allow `.htaccess` overrides
-- phpMyAdmin for database import
-- Optional: OpenAI API key and PHP `curl` / `openssl` support
+- PHP 8.2 or newer with `pdo_mysql`, `mbstring`, `curl`, and `openssl`
+- MySQL or MariaDB database access
+- Apache with `.htaccess` support enabled
+- HTTPS enabled for the production domain
+- Secure server-side environment variable configuration
+- Optional: an OpenAI API key when AI features are enabled
 
-## Installation
+## Online deployment
 
-1. Start Apache and MySQL in the XAMPP Control Panel.
-2. Open phpMyAdmin and import the database file:
-   `C:\xampp\htdocs\COMSAI SYSTEM\database\new_comsai_db.sql`
-3. Copy `.env.example` to `.env` and update the values for your local database connection:
+1. Create a MySQL or MariaDB database in the hosting control panel.
+2. Import `database/new_comsai_db.sql` using the hosting provider's online database management tool.
+3. Upload the application files to the website's public directory.
+4. Copy `.env.example` to `.env` on the server and enter the database credentials provided by the hosting account:
    - `DB_HOST`
    - `DB_PORT`
    - `DB_NAME`
    - `DB_USER`
    - `DB_PASS`
-4. Optionally configure OpenAI settings in `.env`:
+5. Configure the optional OpenAI settings in the server-side `.env` file:
    - `OPENAI_API_KEY`
-   - `OPENAI_EMBEDDINGS_ENABLED=1` (only if semantic retrieval is enabled)
-5. Create the first administrator account:
-
-   `C:\xampp\php\php.exe "C:\xampp\htdocs\COMSAI SYSTEM\bin\create_admin.php"`
-
-6. Verify the database connection:
-
-   `C:\xampp\php\php.exe "C:\xampp\htdocs\COMSAI SYSTEM\bin\test_db.php"`
-
-7. Run the project tests:
-
-   `C:\xampp\php\php.exe "C:\xampp\htdocs\COMSAI SYSTEM\tests\run.php"`
+   - `OPENAI_EMBEDDINGS_ENABLED=1` only when semantic retrieval is enabled
+6. Create the first administrator account using the hosting account's PHP command-line or server task feature, or through the approved application setup process.
+7. Verify the database connection and run the project tests using the hosting account's PHP command-line or server task feature.
+8. Open the production URLs below and confirm that the student page and administrator dashboard load over HTTPS.
 
 ## Configuration
 
-The application expects a server-side `.env` file in the project root. This file should not be committed to version control.
+The application expects a server-side `.env` file in the project root. Do not commit this file to version control or expose it through the public website.
 
-Example values:
+Example structure:
 
 ```env
-DB_HOST=127.0.0.1
+DB_HOST=your-hosting-database-host
 DB_PORT=3306
-DB_NAME=new_comsai_db
-DB_USER=root
-DB_PASS=
-OPENAI_API_KEY=
+DB_NAME=your-hosting-database-name
+DB_USER=your-hosting-database-user
+DB_PASS=your-hosting-database-password
+OPENAI_API_KEY=your-openai-api-key
 OPENAI_EMBEDDINGS_ENABLED=0
 ```
 
-For shared hosting, create a MySQL database in the hosting control panel and set the exact database credentials in `.env` on the server. Ensure PHP has `pdo_mysql` enabled and Apache allows `.htaccess` rules.
+Use the exact database host, port, name, username, and password shown by the hosting provider. Ensure PHP has `pdo_mysql` enabled and Apache allows `.htaccess` rules.
 
 Application timestamps, including chatbot activity and student feedback, are displayed in Philippine time using the `Asia/Manila` timezone (UTC+08:00).
 
-## Local URLs
+## Online URLs
 
-- Student chat: `http://localhost/COMSAI%20SYSTEM/`
-- Admin login: `http://localhost/COMSAI%20SYSTEM/login.php`
-- Admin dashboard: `http://localhost/COMSAI%20SYSTEM/admin/index.php`
-- phpMyAdmin: `http://localhost/phpmyadmin/`
+- Student chat: `https://comsaiproject.com/`
+- Admin login: `https://comsaiproject.com/login.php`
+- Admin dashboard: `https://comsaiproject.com/admin/index.php`
+- Database management: use the database management tool provided in the hosting control panel
 
-Note: The directory contains a space in the folder name, so `%20` is used in browser URLs.
+All public access should use HTTPS. Keep server configuration and deployment paths on the online hosting account.
 
 ## Usage
 
@@ -149,17 +142,17 @@ Important migrations include:
 - `019_knowledge_embeddings.sql`
 - `020_category_student_panel_visibility.sql`
 
-Import these once in phpMyAdmin for an existing database, and do not repeat a migration that is already part of the current full schema.
+Import each migration once using the hosting provider's online database management tool. Do not repeat a migration that is already part of the current full schema.
 
 ## Maintenance and cleanup
 
 The project includes utility scripts for ongoing maintenance:
 
-- `bin\normalize_knowledge_terms.php` — clean and normalize knowledge terms
-- `bin\rebuild_knowledge_embeddings.php` — rebuild semantic embeddings
-- `bin\purge_expired_data.php` — remove expired sessions and old audit rows
+- `bin/normalize_knowledge_terms.php` — clean and normalize knowledge terms
+- `bin/rebuild_knowledge_embeddings.php` — rebuild semantic embeddings
+- `bin/purge_expired_data.php` — remove expired sessions and old audit rows
 
-Run the cleanup script when needed after knowledge updates or when managing long-lived data.
+Run the cleanup script when needed after knowledge updates or when managing long-lived data. Use the hosting account's PHP command-line or server task feature to run maintenance scripts online.
 
 ## Privacy and Security
 
@@ -181,4 +174,4 @@ Read the application manuals for role-specific instructions:
 
 This project contains a fictional sample knowledge entry that must be replaced by verified CCS content before it is considered production-ready. Until approved content is added, the chatbot should clearly state that it cannot verify an answer.
 
-The project is intended as a local academic demonstration foundation and should be reviewed carefully before deployment to a production or public-facing environment.
+The project is prepared for online deployment on a PHP-enabled hosting account. Review the production configuration, database credentials, HTTPS setup, access controls, and approved CCS content before making the application publicly available.
