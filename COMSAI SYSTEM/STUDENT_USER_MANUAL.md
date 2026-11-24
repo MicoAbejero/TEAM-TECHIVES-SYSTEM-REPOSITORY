@@ -4,7 +4,7 @@ COMSAI is the College of Computer Studies (CCS) student information assistant. S
 
 ## Open COMSAI
 
-Open the student page provided by your school. For a local XAMPP installation, it is `http://localhost/COMSAI%20SYSTEM/`. On a deployed site, use the site's home page.
+Open the online COMSAI student page at `https://comsaiproject.com/`.
 
 ## Ask a question
 
